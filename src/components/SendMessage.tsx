@@ -3,15 +3,16 @@ import { User } from "../types";
 
 type SendMessageProps = {
     user: User | null;
+    channel: BroadcastChannel;
 };
 
-export const SendMessage = ({ user }: SendMessageProps) => {
+export const SendMessage = ({ user, channel }: SendMessageProps) => {
     const [msgText, setMsgText] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        alert(
+        channel.postMessage(
             JSON.stringify({
                 id: Date.now(),
                 text: msgText,
