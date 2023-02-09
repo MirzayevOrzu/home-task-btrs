@@ -40,7 +40,7 @@ function App() {
     return (
         <div className="App">
             <UserProfile user={user} />
-            <ChatThread messages={messages} />
+            <ChatThread user={user} messages={messages} />
             <SendMessage user={user} channel={channel} />
         </div>
     );
