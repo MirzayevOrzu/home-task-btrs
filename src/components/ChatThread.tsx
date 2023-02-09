@@ -19,7 +19,7 @@ export const ChatThread = ({ user, messages }: ChatThreadProps) => {
     }, []);
 
     return (
-        <div>
+        <div id="chat-thread">
             <ul>
                 {messages.map((msg) => (
                     <ChatMessage

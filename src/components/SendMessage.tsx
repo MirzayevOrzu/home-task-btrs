@@ -38,7 +38,7 @@ export const SendMessage = ({
     };
 
     return (
-        <div>
+        <div id="send-message">
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
