@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { channel } from "./app/channel";
+import { channel } from "./apis/channel";
 import { ChatThread } from "./components/ChatThread";
 import { SendMessage } from "./components/SendMessage";
 import { UserProfile } from "./components/UserProfile";
