@@ -9,6 +9,7 @@ import { Message, User } from "./types";
 function App() {
     const [user, setUser] = useState<User | null>(null);
     const [messages, setMessages] = useState<Message[]>([]);
+    const [page, setPage] = useState(1);
 
     channel.onmessage = (event) => {
         const newMessage: Message = JSON.parse(event.data);
@@ -40,7 +41,7 @@ function App() {
     return (
         <div className="App">
             <UserProfile user={user} />
-            <ChatThread user={user} messages={messages} />
+            <ChatThread user={user} messages={messages.slice(-1 * 25)} />
             <SendMessage
                 user={user}
                 channel={channel}
