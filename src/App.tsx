@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { UserProfile } from "./components/UserProfile";
 import { User } from "./types";
 
 function App() {
@@ -10,7 +11,11 @@ function App() {
         setUser({ id: new Date().getTime(), name: name! });
     }, []);
 
-    return <div className="App">Home</div>;
+    return (
+        <div className="App">
+            <UserProfile user={user} />
+        </div>
+    );
 }
 
 export default App;
