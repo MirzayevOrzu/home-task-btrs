@@ -4,9 +4,14 @@ import { Message, User } from "../types";
 type SendMessageProps = {
     user: User | null;
     channel: BroadcastChannel;
+    setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
 };
 
-export const SendMessage = ({ user, channel }: SendMessageProps) => {
+export const SendMessage = ({
+    user,
+    channel,
+    setMessages,
+}: SendMessageProps) => {
     const [msgText, setMsgText] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -27,6 +32,9 @@ export const SendMessage = ({ user, channel }: SendMessageProps) => {
         localStorage.setItem("messages", JSON.stringify(messages));
 
         channel.postMessage(JSON.stringify(newMsg));
+
+        // This is done so because channel postMessage does not broadcast to it's own tab
+        setMessages((messages) => [...messages, newMsg]);
     };
 
     return (
