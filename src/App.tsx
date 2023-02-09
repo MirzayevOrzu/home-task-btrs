@@ -12,7 +12,7 @@ function App() {
 
     channel.onmessage = (event) => {
         const newMessage: Message = JSON.parse(event.data);
-        console.log(newMessage.text);
+        setMessages([...messages, newMessage]);
     };
 
     channel.onmessageerror = (event) => {
