@@ -7,7 +7,7 @@ type UserProfileProps = {
 
 export const UserProfile = ({ user }: UserProfileProps) => {
     return (
-        <div>
+        <div id="user-profile">
             <p>ID: {user?.id}</p>
             <p>Name: {user?.name}</p>
         </div>
