@@ -15,7 +15,7 @@ export const ChatThread = ({ user, messages }: ChatThreadProps) => {
                     <ChatMessage
                         key={`${msg.id}-${msg.from.id}`}
                         message={msg}
-                        isOwner={msg.from.id === user?.id}
+                        user={user}
                     />
                 ))}
             </ul>

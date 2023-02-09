@@ -1,12 +1,14 @@
 import React from "react";
-import { Message } from "../types";
+import { Message, User } from "../types";
 
 type ChatMessageProps = {
     message: Message;
-    isOwner: boolean;
+    user: User | null;
 };
 
-export const ChatMessage = ({ message, isOwner }: ChatMessageProps) => {
+export const ChatMessage = ({ message, user }: ChatMessageProps) => {
+    const isOwner = message.from.id === user?.id;
+
     return (
         <li style={{ textAlign: isOwner ? "right" : "left" }}>
             {message.text} <i>{isOwner ? "You" : message.from.name}</i>
