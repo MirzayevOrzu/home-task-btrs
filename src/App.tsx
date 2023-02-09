@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { channel } from "./app/channel";
+import { ChatThread } from "./components/ChatThread";
 import { SendMessage } from "./components/SendMessage";
 import { UserProfile } from "./components/UserProfile";
 import { defaultMessages } from "./fixtures/messages";
@@ -39,6 +40,7 @@ function App() {
     return (
         <div className="App">
             <UserProfile user={user} />
+            <ChatThread messages={messages} />
             <SendMessage user={user} channel={channel} />
         </div>
     );
