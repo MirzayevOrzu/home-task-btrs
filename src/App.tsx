@@ -7,6 +7,7 @@ import { Message, User } from "./types";
 
 function App() {
     const [user, setUser] = useState<User | null>(null);
+    const [messages, setMessages] = useState<Message[]>([]);
 
     channel.onmessage = (event) => {
         const newMessage: Message = JSON.parse(event.data);
@@ -25,7 +26,7 @@ function App() {
         if (!messagesJSON) {
             localStorage.setItem("messages", JSON.stringify(defaultMessages));
         } else {
-            // TODO save to local state (redux, react state)
+            setMessages(JSON.parse(messagesJSON));
         }
 
         setUser({ id: new Date().getTime(), name: name! });
