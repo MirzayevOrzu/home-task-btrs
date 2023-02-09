@@ -1,5 +1,47 @@
+body {
+  overflow: hidden
+}
+
 .App {
   text-align: center;
+}
+
+.App #user-profile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 50px;
+}
+
+.App #send-message {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color:burlywood;
+  height: 40px;
+}
+
+.App #send-message form {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.App #chat-thread {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.App #chat-thread ul {
+  padding: 50px 10px;
 }
 
 .App-logo {

@@ -5,6 +5,7 @@ import { SendMessage } from "./components/SendMessage";
 import { UserProfile } from "./components/UserProfile";
 import { defaultMessages } from "./fixtures/messages";
 import { Message, User } from "./types";
+import "./App.css";
 
 function App() {
     const [user, setUser] = useState<User | null>(null);
