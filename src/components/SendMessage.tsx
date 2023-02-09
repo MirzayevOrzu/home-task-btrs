@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { User } from "../types";
+import { Message, User } from "../types";
 
 type SendMessageProps = {
     user: User | null;
@@ -11,15 +11,22 @@ export const SendMessage = ({ user, channel }: SendMessageProps) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        const newMsg: Message = {
+            id: Date.now(),
+            text: msgText,
+            from: user as User,
+            time: new Date().toDateString(),
+        };
 
         setMsgText("");
-        channel.postMessage(
-            JSON.stringify({
-                id: Date.now(),
-                text: msgText,
-                from: user,
-            })
+
+        const messages: Message[] = JSON.parse(
+            localStorage.getItem("messages")!
         );
+        messages.push(newMsg);
+        localStorage.setItem("messages", JSON.stringify(messages));
+
+        channel.postMessage(JSON.stringify(newMsg));
     };
 
     return (
