@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Message, User } from "../types";
 import { ChatMessage } from "./ChatMessage";
 
@@ -8,6 +8,10 @@ type ChatThreadProps = {
 };
 
 export const ChatThread = ({ user, messages }: ChatThreadProps) => {
+    useEffect(() => {
+        window.scrollTo(0, document.querySelector("ul")!.scrollHeight);
+    }, []);
+
     return (
         <div>
             <ul>
