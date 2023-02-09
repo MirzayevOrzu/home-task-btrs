@@ -3,12 +3,13 @@ import { Message } from "../types";
 
 type ChatMessageProps = {
     message: Message;
+    isOwner: boolean;
 };
 
-export const ChatMessage = ({ message }: ChatMessageProps) => {
+export const ChatMessage = ({ message, isOwner }: ChatMessageProps) => {
     return (
-        <li>
-            {message.text} <i>{message.from.name}</i>
+        <li style={{ textAlign: isOwner ? "right" : "left" }}>
+            {message.text} <i>{isOwner ? "You" : message.from.name}</i>
         </li>
     );
 };
