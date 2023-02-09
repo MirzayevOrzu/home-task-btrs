@@ -9,7 +9,13 @@ type ChatThreadProps = {
 
 export const ChatThread = ({ user, messages }: ChatThreadProps) => {
     useEffect(() => {
-        window.scrollTo(0, document.querySelector("ul")!.scrollHeight);
+        const ul = document.querySelector("#chat-thread")!;
+
+        // As css is loading later, I could not find better solution yet
+        // TODO optimize this
+        setTimeout(() => {
+            ul.scrollTo(0, ul.scrollHeight);
+        }, 300);
     }, []);
 
     return (
