@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { SendMessage } from "./components/SendMessage";
 import { UserProfile } from "./components/UserProfile";
 import { defaultMessages } from "./fixtures/messages";
 import { User } from "./types";
@@ -23,6 +24,7 @@ function App() {
     return (
         <div className="App">
             <UserProfile user={user} />
+            <SendMessage user={user} />
         </div>
     );
 }
