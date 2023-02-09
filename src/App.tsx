@@ -41,7 +41,11 @@ function App() {
         <div className="App">
             <UserProfile user={user} />
             <ChatThread user={user} messages={messages} />
-            <SendMessage user={user} channel={channel} />
+            <SendMessage
+                user={user}
+                channel={channel}
+                setMessages={setMessages}
+            />
         </div>
     );
 }
