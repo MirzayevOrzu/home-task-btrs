@@ -12,6 +12,7 @@ export const SendMessage = ({ user, channel }: SendMessageProps) => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
+        setMsgText("");
         channel.postMessage(
             JSON.stringify({
                 id: Date.now(),
