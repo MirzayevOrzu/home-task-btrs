@@ -42,7 +42,11 @@ function App() {
     return (
         <div className="App">
             <UserProfile user={user} />
-            <ChatThread user={user} messages={messages.slice(-1 * 25)} />
+            <ChatThread
+                user={user}
+                messages={messages.slice(-page * 25)}
+                setPage={setPage}
+            />
             <SendMessage
                 user={user}
                 channel={channel}
